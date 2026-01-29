@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Location Share</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="text-align:center;font-family:Arial">
+
+<h2>📍 Share Location</h2>
+<p>Your location is shared only after your permission.</p>
+
+<button onclick="getLocation()" style="font-size:18px;padding:12px">
+Share Location
+</button>
+
+<p id="out"></p>
+
+<script>
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      document.getElementById("out").innerHTML =
+        "Latitude: " + pos.coords.latitude +
+        "<br>Longitude: " + pos.coords.longitude;
+    },
+    () => {
+      document.getElementById("out").innerHTML =
+        "Permission denied.";
+    }
+  );
+}
+</script>
+
+</body>
+</html>
